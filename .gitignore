@@ -1,0 +1,48 @@
+# Environment files
+.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE and editor specific files
+# Adjust this section based on your IDE/editor
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Virtual environment
+env/
+
+# Logs
+*.log
+
+# Temporary files
+*.py~
+
+# Sphinx documentation
+docs/_build/
