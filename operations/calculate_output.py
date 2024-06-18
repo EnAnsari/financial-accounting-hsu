@@ -44,8 +44,6 @@ def calculate(members, records):
             if records[i][2][j] == 1 and j != buyer_idx:
                 payment[j][buyer_idx] += price
     
-    # print(payment)
-
     payment = sync(payment)
     export_csv(payment, members)
     print("\nresult created successfully!\n")

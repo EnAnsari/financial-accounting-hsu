@@ -25,7 +25,7 @@ def main():
             payment = calculate_output.calculate(members, records)
         elif choice == '3':
             if payment:
-                calculate_payment.calculate(payment)
+                calculate_payment.calculate(payment, members)
         elif choice == '4':
             if not members:
                 print('\nError: DB is empty!\n')
