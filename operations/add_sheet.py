@@ -47,14 +47,10 @@ def add_data(members, records, history, MAXMEMBER):
                 index_array[i] = members.index(header[i])
             
             for record in data:
-                # print('record: ',record)
                 row = [*record[:2]]
-                # print('row: ',row)
                 status = [0] * MAXMEMBER
-                print('status: ', status)
                 
                 for i in range(len(header)):
-                    print('i:', i, ' record item: ', record[2][i])
                     status[index_array[i]] = record[2][i]
                 row.append(status)
                 records.append(row)

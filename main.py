@@ -6,12 +6,13 @@ def main():
 
     # download data
     members, records, history = data_handler.load_data()
-
+    payment = None
+    
     while True:
         print(f"members: {len(members)}, records: {len(records)}\n")
         print("[1] add csv files to db")
         print("[2] calculate output")
-        print("[3] calculate payments")
+        print(f"[3] calculate payments ({'enable' if payment else 'disable'})")
         print("[4] export db to csv")
         print(f"[5] clear csv history ({len(history)} file)")
         print("[6] clear data")
@@ -21,9 +22,10 @@ def main():
         if choice == '1':
             members, records, history = add_sheet.add_data(members, records, history, MAXMEMBER)
         elif choice == '2':
-            calculate_output.calculate()
+            payment = calculate_output.calculate(members, records)
         elif choice == '3':
-            calculate_payment.calculate()
+            if payment:
+                calculate_payment.calculate(payment)
         elif choice == '4':
             if not members:
                 print('\nError: DB is empty!\n')
@@ -37,6 +39,7 @@ def main():
             if input("Are you sure (yes/no)? ").lower() in ['yes', 'y']:
                 members.clear()
                 records.clear()
+                history.clear()
                 print('\ncleard successfully!\n')
         elif choice == '7':
             print("\ngoodbye!\n")
