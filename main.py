@@ -1,4 +1,6 @@
-from operations import add_sheet, calculate_output, calculate_payment, clear_data, data_handler
+from operations import add_sheet, calculate_output, calculate_payment, data_handler, export_csv
+
+MAXMEMBER = 10
 
 def main():
 
@@ -11,23 +13,31 @@ def main():
         print("[2] calculate output")
         print("[3] calculate payments")
         print("[4] export db to csv")
-        print(f"[5] clear csv history ({len(history)}) file")
+        print(f"[5] clear csv history ({len(history)} file)")
         print("[6] clear data")
         print("[7] Exit...!")
         
         choice = input("\nEnter your choice: ")
         if choice == '1':
-            pass
+            add_sheet.add_data()
         elif choice == '2':
-            pass
+            calculate_output.calculate()
         elif choice == '3':
-            pass
+            calculate_payment.calculate()
         elif choice == '4':
-            pass
+            if not members:
+                print('\nError: DB is empty!\n')
+            else:
+                export_csv.export(members, records)
         elif choice == '5':
-            pass
+            if input("Are you sure (yes/no)? ").lower() in ['yes', 'y']:
+                history.clear()
+                print('\ncleard successfully!\n')
         elif choice == '6':
-            pass
+            if input("Are you sure (yes/no)? ").lower() in ['yes', 'y']:
+                members.clear()
+                records.clear()
+                print('\ncleard successfully!\n')
         elif choice == '7':
             print("\ngoodbye!\n")
             break
