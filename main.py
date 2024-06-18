@@ -3,7 +3,7 @@ from operations import add_sheet, calculate_output, calculate_payment, clear_dat
 def main():
 
     # download data
-    members, records = data_handler.load_data()
+    members, records, history = data_handler.load_data()
 
     while True:
         print(f"members: {len(members)}, records: {len(records)}\n")
@@ -11,7 +11,7 @@ def main():
         print("[2] calculate output")
         print("[3] calculate payments")
         print("[4] export db to csv")
-        print("[5] clear csv history")
+        print(f"[5] clear csv history ({len(history)}) file")
         print("[6] clear data")
         print("[7] Exit...!")
         
@@ -35,7 +35,7 @@ def main():
             print("\nError: invalid choice. Try Again!\n")
 
     # update data
-    data_handler.save_data(members, records)
+    data_handler.save_data(members, records, history)
 
 if __name__ == "__main__":
     main()
