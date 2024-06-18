@@ -3,6 +3,8 @@
 
 # program Data
 *data.json
+*.csv
+result/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

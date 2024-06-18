@@ -19,7 +19,7 @@ def main():
         
         choice = input("\nEnter your choice: ")
         if choice == '1':
-            add_sheet.add_data()
+            members, records, history = add_sheet.add_data(members, records, history, MAXMEMBER)
         elif choice == '2':
             calculate_output.calculate()
         elif choice == '3':
