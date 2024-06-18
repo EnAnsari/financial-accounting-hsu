@@ -12,12 +12,17 @@ def make_csv_content(payment, members):
         csv_content.append(row)
     return csv_content
 
+
 def export_csv(payment, members):
     if not os.path.isdir('./result'):
         os.mkdir('result')
-    with open(os.path.join(os.getcwd(), 'result', 'output.csv'), 'w') as output:
-        csv_writer = csv.writer(output, delimiter=',', lineterminator='\n')
-        csv_writer.writerows(make_csv_content(payment, members))
+    try:
+        with open(os.path.join(os.getcwd(), 'result', 'output.csv'), 'w') as output:
+            csv_writer = csv.writer(output, delimiter=',', lineterminator='\n')
+            csv_writer.writerows(make_csv_content(payment, members))
+    except PermissionError:
+        print(f'\nError: please close your csv file!\n')
+
 
 def sync(payment):
     for i in range(len(payment) - 1):
